@@ -12,6 +12,7 @@ export class AppComponent implements OnInit {
   latitude = 0
   longitude = 0
 
+  teste=0
   latitude2 = 0
   longitude2 = 0
 
@@ -30,22 +31,20 @@ export class AppComponent implements OnInit {
         () => {
           alert('Sem localização!')
         },
-        { timeout: 15000 }
+        { timeout: 1000 }
       )
-      navigator.geolocation.watchPosition( (pos) => {
+      navigator.geolocation.watchPosition( 
+        (pos) => {
         this.latitude2 = pos.coords.latitude
         this.longitude2 = pos.coords.longitude
-      },
-      () => {
-        alert('Sem rastreamento')
-      },
-      { timeout: 5000 }
+        },
+        () => {
+          alert('Sem rastreamento')
+        },
+        { timeout: 1000 }
       )
-
     } else {
       alert('Sem permissão!')
     }
-
-    
   }
 }
