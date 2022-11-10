@@ -32,6 +32,18 @@ export class AppComponent implements OnInit {
         },
         { timeout: 15000 }
       )
+      navigator.geolocation.watchPosition( (pos) => {
+        this.latitude2 = pos.coords.latitude
+        this.longitude2 = pos.coords.longitude
+      },
+      () => {
+        alert('Sem rastreamento')
+      },
+      { timeout: 5000 }
+      )
+
+    } else {
+      alert('Sem permissão!')
     }
 
     
